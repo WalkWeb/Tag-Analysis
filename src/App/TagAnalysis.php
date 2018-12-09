@@ -9,17 +9,19 @@ namespace App;
  *
  * [
  *     [
- *         [tag] => <html> - тег
- *         [type] => double - тип тега (double - двойной, т.е. у тега должен быть закрывающий тег, single - одиночный)
+ *         [tag] => <html> // тег
+ *         [type] => double // тип тега (double - двойной, т.е. у тега должен быть закрывающий тег, single - одиночный)
  *         [count] => [
- *             [count] => 2 - общее количество вхождений в строке
- *             [first] => 1 - количество вхождений открывающего тега
- *             [second] => 1 - количество вхождений закрывающего тега
+ *             [count] => 2 // общее количество вхождений в строке
+ *             [first] => 1 // количество вхождений открывающего тега
+ *             [second] => 1 // количество вхождений закрывающего тега
  *         ]
- *         [validation] => 1 - валидация, для двойных тегов: true - если количество открывающихся и закрывающихся равно,
- *                             false - если их количество не совпадает
- *     ]
- * ...
+ *         [validation] => true // валидация, для двойных тегов:
+ *                              // true - если количество открывающихся и закрывающихся равно,
+ *                              // false - если их количество не совпадает
+ *     ],
+ *     ...
+ * ]
  *
  * Class TagAnalysis
  * @package App
@@ -37,6 +39,8 @@ class TagAnalysis
     }
 
     /**
+     * Анализирует строку на наличие тегов
+     *
      * @param string $string
      * @return array
      */
@@ -53,14 +57,15 @@ class TagAnalysis
     }
 
     /**
+     * Ищет вхождение тега в строку и собирает массив с результатами
+     *
      * @param $string
      * @param $tag
      * @return array
      */
     private function searchTags(string $string, array $tag): array
     {
-        $result['tag'] = htmlspecialchars($tag['tag']);
-        $result['type'] = $tag['type'];
+        $result = $tag;
 
         if ($tag['type'] === 'single') {
             $result['count']['count'] = $this->searchSingleTag($string, $tag['tag']);
@@ -80,14 +85,15 @@ class TagAnalysis
     /**
      * Поиск одиночного тега (тега, у которого нет закрывающего тега)
      *
+     * Можно искать одиночные теги, у которых нет закрывающего символа />, например <br> вместо <br />
+     * Но тогда получится, что у нас уже не просто анализ тегов, но еще и анализ синтаксиса.
+     *
      * @param $string
      * @param $tag
      * @return int
      */
     private function searchSingleTag($string, $tag): int
     {
-        $tag = mb_substr($tag, 1);
-        $tag = mb_substr($tag, 0, -1);
         preg_match_all('{<' . $tag . '(?: [^>]*)?>}', $string, $matches);
         return count($matches[0]);
     }
@@ -102,11 +108,9 @@ class TagAnalysis
      */
     private function searchDoubleTag($string, $tag): array
     {
-        $tag = mb_substr($tag, 1);
-        $tag = mb_substr($tag, 0, -1);
         preg_match_all('{<' . $tag . '(?: [^>]*)?>}', $string, $matches);
         $first = count($matches[0]);
-        preg_match_all('{</' . $tag . '(?: [^>]*)?>}', $string, $matches);
+        preg_match_all('{</' . $tag . ' *>}', $string, $matches);
         $second = count($matches[0]);
 
         return ['count' => ($first + $second), 'first' => $first, 'second' => $second];

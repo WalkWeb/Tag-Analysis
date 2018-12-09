@@ -17,7 +17,7 @@ class Request
      */
     public function __construct($get)
     {
-        if (!empty($get['url']) ) $this->url = $get['url'];
+        if (!empty($get['url'])) $this->url = $get['url'];
     }
 
     /**
@@ -25,10 +25,9 @@ class Request
      *
      * @return bool
      */
-    public function url(): bool
+    public function isUrlExist(): bool
     {
-        if ($this->url) return true;
-        return false;
+        return !empty($this->url);
     }
 
     /**

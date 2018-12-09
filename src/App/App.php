@@ -13,9 +13,9 @@ class App
      */
     public function htmlResponse(Request $request): string
     {
-        if ($request->url()) {
+        if ($request->isUrlExist()) {
             $curl = new cURL($request->getUrl());
-            if ($curl->content()) {
+            if ($curl->isContentExist()) {
                 $analysis = new TagAnalysis();
                 return View::getResultPage($request->getUrl(), $analysis->getAnalysis($curl->getHtmlContent()));
             } else {

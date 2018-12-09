@@ -9,83 +9,83 @@
 
 return [
     [
-        'tag' => '<html>',
+        'tag' => 'html',
         'type' => 'double'
     ],
     [
-        'tag' => '<head>',
+        'tag' => 'head',
         'type' => 'double'
     ],
     [
-        'tag' => '<title>',
+        'tag' => 'title',
         'type' => 'double'
     ],
     [
-        'tag' => '<meta>',
+        'tag' => 'meta',
         'type' => 'single'
     ],
     [
-        'tag' => '<body>',
+        'tag' => 'body',
         'type' => 'double'
     ],
     [
-        'tag' => '<p>',
+        'tag' => 'p',
         'type' => 'double'
     ],
     [
-        'tag' => '<hr>',
+        'tag' => 'hr',
         'type' => 'single'
     ],
     [
-        'tag' => '<img>',
+        'tag' => 'img',
         'type' => 'single'
     ],
     [
-        'tag' => '<div>',
+        'tag' => 'div',
         'type' => 'double'
     ],
     [
-        'tag' => '<span>',
+        'tag' => 'span',
         'type' => 'double'
     ],
     [
-        'tag' => '<b>',
+        'tag' => 'b',
         'type' => 'double'
     ],
     [
-        'tag' => '<i>',
+        'tag' => 'i',
         'type' => 'double'
     ],
     [
-        'tag' => '<a>',
+        'tag' => 'a',
         'type' => 'double'
     ],
     [
-        'tag' => '<pre>',
+        'tag' => 'pre',
         'type' => 'double'
     ],
     [
-        'tag' => '<frame>',
+        'tag' => 'frame',
         'type' => 'single'
     ],
     [
-        'tag' => '<frameset>',
+        'tag' => 'frameset',
         'type' => 'double'
     ],
     [
-        'tag' => '<iframe>',
+        'tag' => 'iframe',
         'type' => 'double'
     ],
     [
-        'tag' => '<h1>',
+        'tag' => 'h1',
         'type' => 'double'
     ],
     [
-        'tag' => '<h2>',
+        'tag' => 'h2',
         'type' => 'double'
     ],
     [
-        'tag' => '<h3>',
+        'tag' => 'h3',
         'type' => 'double'
     ],
 ];

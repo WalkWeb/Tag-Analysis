@@ -30,10 +30,9 @@ class cURL
      *
      * @return bool
      */
-    public function content(): bool
+    public function isContentExist(): bool
     {
-        if ($this->htmlContent) return true;
-        return false;
+        return !empty($this->htmlContent);
     }
 
     /**

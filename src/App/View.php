@@ -50,7 +50,7 @@ class View
             if ($value['validation']) {
                 $content .=
                     '<div class="tag green">
-                        <div class="tag_elemet tag_title"><p>Тег:<br /><span class="big green">' . $value['tag'] . '</span></p></div>
+                        <div class="tag_elemet tag_title"><p>Тег:<br /><span class="big green">&lt;' . $value['tag'] . '&gt;</span></p></div>
                         <div class="tag_elemet tag_type"><p>Тип:<br /><span class="big">' . $type . '</span></p></div>
                         ' . $number . '
                         <div class="tag_elemet tag_status"><p><span class="big green">ОК</span></p></div>
@@ -58,7 +58,7 @@ class View
             } else {
                 $content .=
                     '<div class="tag red">
-                        <div class="tag_elemet tag_title"><p>Тег:<br /><span class="big red">' . $value['tag'] . '</span></p></div>
+                        <div class="tag_elemet tag_title"><p>Тег:<br /><span class="big red">&lt;' . $value['tag'] . '&gt;</span></p></div>
                         <div class="tag_elemet tag_type"><p>Тип:<br /><span class="big">' . $type . '</span></p></div>
                         ' . $number . '
                         <div class="tag_elemet tag_status"><p><span class="big red">Ошибка</span></p></div>
