@@ -2,6 +2,11 @@
 
 namespace App;
 
+/**
+ * Класс получает (если это возможно) html-контент указанного сайта, с использованием cURL
+ *
+ * @package App
+ */
 class cURL
 {
     private $htmlContent = null;
