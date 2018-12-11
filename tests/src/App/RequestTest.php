@@ -1,7 +1,8 @@
 <?php
 
-namespace App;
+namespace Test;
 
+use App\Request;
 use PHPUnit\Framework\TestCase;
 
 class RequestTest extends TestCase
