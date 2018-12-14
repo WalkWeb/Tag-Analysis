@@ -35,9 +35,9 @@ class Request
     /**
      * Возвращает url
      *
-     * @return null
+     * @return null|string
      */
-    public function getUrl()
+    public function getUrl(): ?string
     {
         return $this->url;
     }

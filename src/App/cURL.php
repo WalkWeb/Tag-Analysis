@@ -43,9 +43,9 @@ class cURL
     /**
      * Возвращает htmlContent
      *
-     * @return mixed|null
+     * @return null|string
      */
-    public function getHtmlContent()
+    public function getHtmlContent(): ?string
     {
         return $this->htmlContent;
     }
@@ -54,9 +54,9 @@ class cURL
      * Делает curl-запрос по указанному URL и возвращает ответ
      *
      * @param $url
-     * @return mixed
+     * @return null|string
      */
-    private function runCurl($url)
+    private function runCurl($url): ?string
     {
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
